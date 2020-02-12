@@ -1,3 +1,6 @@
+
+
+# Embed the docstrings in this function to be accessed by Help()
 def understand_the_task():
     '''
     The Sieve of Eratosthenes is a simple and ingenious ancient algorithm for finding all prime numbers up to any given limit.
@@ -13,3 +16,23 @@ def understand_the_task():
     6. Continue in this pattern until a prime number multiplied by itself is greater than the range
     7. The remaining integers will all be prime!
     '''
+
+
+# Initialize the necessary variables
+start_num: int = 2
+ending_num: int = 120
+looping_list: list = [2, 3, 5, 7, 9]
+result_list: list = [True] * ending_num
+
+# Cross off numbers in the list which are not prime via process of elimination
+for i in looping_list:
+    for j in range(i * 2, ending_num, i):
+        result_list[j] = False
+
+# Display the prime numbers to the console
+print('Prime numbers: ', end='')
+for i in range(start_num, ending_num):
+    if result_list[i]:
+        print(str(i), end=', ')
+
+print('...')
